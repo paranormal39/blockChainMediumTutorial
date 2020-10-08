@@ -1,15 +1,15 @@
 const crypto = require('crypto');
 class Block{
-    constructor(index,data,preHash){
+    constructor(index,data,prevHash){
         this.index = index;
-        this.timestamp = Math.floor(Data.now()/1000);
+        this.timestamp = Math.floor(Date.now()/1000);
         this.data = data;
         this.prevHash = prevHash;
         this.hash = this.getHash();
     }
     getHash(){
-        var encript=Json.strngify(this.data) + this.prevHash + this.index + this.timestamp;
-        var hash = crypto.createHmac('sha256',"secret").update(encipt).digest('hex');
+        var encript=JSON.stringify(this.data) + this.prevHash + this.index + this.timestamp;
+        var hash = crypto.createHmac('sha256',"secret").update(encript).digest('hex');
         return hash;
         
     }
@@ -39,7 +39,7 @@ class BlockChain {
 }
 
 const BChain = new BlockChain();
-BChain.addBlock({sender:"Anthony Montanez",reciver:"boss mac ",amount:20});
+BChain.addBlock({sender:"Adog",reciver:"Bigknite ",amount:20});
 BChain.addBlock({sender:"Twonzeey",reciver:"weezy",amount:40});
 console.dir(BChain,{depth:null})
 
